@@ -1,0 +1,47 @@
+body{
+   background-color: #8dcdd0;
+   box-sizing: border-box;
+}
+
+#logo{
+   width: 350px;
+   height: auto;
+   margin: auto;
+}
+#logo img {
+   width: 100%;
+   height: auto;
+}
+
+#caixa_login{
+   background-color: #3ebfbf;
+   width: 450px;
+   height: auto;
+   margin: -35px auto;
+   border: 2px solid #aaa;
+   border-radius: 11px;
+}
+#caixa_login table{
+   font: 15px arial, helvetica, sans-serif;
+   color: #666;
+   margin: 15px 10px 10px 10px;
+}
+
+#caixa_login .error{
+   font: 15px Arial, Helvetica, sans-serif;
+   color: #ff0010;
+   background-color: #e8b05e;
+   text-align: center;
+   padding: 5px;
+   margin: 20px 5px 10px 10px;
+   border: 1px solid #bbb;
+   border-radius: 6px;
+   text-shadow: 2px 3px 1px #719724;
+
+   
+}
+
+/* table{
+   border: 1px solid #b82f2f;
+  padding: 8px;
+} */
