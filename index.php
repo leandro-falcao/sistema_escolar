@@ -7,14 +7,7 @@
    <link rel="stylesheet" href="css/reset.css">
    <link rel="stylesheet" href="css/index.css">
    <link rel="shortcut icon" href="img/ico_escolaA1.ico" type="image/x-icon">
-   <style>
-      body h1:nth-child(2n){
-         /*color: #f01;
-         text-shadow: 20px 20px 22px  #000;
-
-          text-stroke-width: 2px; */
-      }
-   </style>
+  
 
    <title>sistema escolar</title>
 
@@ -35,12 +28,12 @@
 
      <?php
          #vamos verificar se existe o arquivo
-         if (file_exists("./conexao.php")) {
-            echo "<p style='background: green; color: #fff; text-shadow: 2px 1px 1px #719724; font-size: 18px; text-align: center;'>sim existe o arquivo</p>";
-         }
-         else {
-            echo "<p style='background: #F30; color: #f2ff2f; text-shadow: 2px 1px 1px #719724; font-size: 18px; text-align: center;'>não existe este arquivo</p>";
-         }
+         // if (file_exists("./conexao.php")) {
+         //    echo "<script>console.log('sim existe o arquivo')</script>";
+         // }
+         // else {
+         //    echo "<script>console.log('Não existe este arquivo')</script>";
+         // }
      
      
          #PHP PARA TRATA DADOS DO POST DO FORMULARIO DE CONEXAO COM BANCO DE DADOS MYSQL
@@ -78,24 +71,41 @@
                      $painel = $res_1['painel']; 
 
                      if ($status == 'Inativo') {
-                        echo "<h5>voce esta inativo, procura a administração</h5>";
+                        echo "<h5 style='background-color: #42cc20; color: #a52a2a;' class='onn visibilidade'>voce esta inativo, procura a administração</h5>";
+                        
                      } #end if status
+                     
                      else {
-                        $session_start();
+                        session_start();
                         $_SESSION['code'] = $code;
-                        $_SESSION['senha'] = $senha;
                         $_SESSION['nome'] = $nome;
+                        $_SESSION['senha'] = $senha;
                         $_SESSION['painel'] = $painel;
-                       
-                     }#end else session start and _SESSION
+                        
+                        if($painel == 'admin'){
+                           echo "<script language='javascript'> window.location='admin';</script>";	
+                           
+                        } 
+                        else if($painel == 'aluno'){
+                           echo "<script language='javascript'> window.location='aluno';</script>";	
+                        }
+                        else if($painel == 'professor'){
+                           echo "<script language='javascript'> window.location='professor';</script>";	
+                        }
+                        else if($painel == 'portaria'){
+                           echo "<script language='javascript'> window.location='portaria';</script>";	
+                        }
+                        else if($painel == 'tesouraria'){
+                           echo "<script language='javascript'> window.location='tesouraria';</script>";	
+                        }
+                           
+                     }
+                     
+                  }
                   
-                  } # fim do while
-               
-               } #fim do if myqli num rows
-
-               # o senao do SE de mysqli
-               else { 
-                  echo"<h3>sem dados, ou incorreto</h3>";
+               } else{
+                  echo"<h3 >sem dados, ou dados incorreto</h3>";
+                     
                } # fim do else do if do mysqli
 
             } #fim do else se nao tiver dados
@@ -104,10 +114,11 @@
          
       ?>
 
+
      <form action="" name="form" method="post" enctype="multipart/forma-data">
         <table>
            <tr>
-              <td><h1>N° cartão ou código de acesso: </h1> </td>
+              <td><h2>N° cartão ou código de acesso: </h2> </td>
            </tr>
            
            <tr>
@@ -132,7 +143,10 @@
         </table>
      </form>
   </div>
+
+ 
    
-   <script src="js/script.js"></script>
+   <script src="js/script.js">
+</script>
 </body>
 </html>
