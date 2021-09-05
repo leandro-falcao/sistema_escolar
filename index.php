@@ -14,6 +14,7 @@
    <!-- chamando o php de conexao onde estão os dados do banco de dados e de conexao.
       chamando com require "" ou include
    -->
+   
    <?php require "./conexao.php" ?>
    
 </head>
